@@ -13,6 +13,17 @@ Notes
 - The app targets Node 18 via `vercel.json` and `package.json` `engines` field.
 - We added a small Node memory hint in `vercel.json` to reduce OOM incidents during build.
 - The API route `pages/api/fetch-products.js` makes outbound HTTP requests; Vercel serverless functions must be able to reach those external endpoints.
-# Perfume-Price-Tracker
-Perfume-Price-Tracker
-test
+GitHub Actions (automatic deploy)
+
+This repo includes a GitHub Actions workflow `.github/workflows/deploy-vercel.yml` that can deploy to Vercel on every push to `main` or via manual Dispatch. To use it you must add the following repository secrets in GitHub:
+
+- `VERCEL_TOKEN` - a personal token from Vercel (Account Settings → Tokens).
+- `VERCEL_ORG_ID` - your Vercel organization ID (found in Project > Settings → General or via Vercel CLI).
+- `VERCEL_PROJECT_ID` - your Vercel project ID (found in Project → Settings → General).
+
+When those secrets are configured, pushes to `main` will build and push the site to Vercel production automatically.
+
+Notes
+- No code changes are required to deploy — the workflow runs `pnpm build` then the Vercel action to deploy.
+
+Enjoy your deployment!
