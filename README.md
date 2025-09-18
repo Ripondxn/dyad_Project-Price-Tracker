@@ -10,7 +10,7 @@ Quick deploy steps
 4. If you use environment variables in the future, add them in the Vercel project settings.
 
 Notes
-- The app targets Node 18 via `vercel.json` and `package.json` `engines` field.
+- The app targets Node 22 via `package.json` `engines` field.
 - We added a small Node memory hint in `vercel.json` to reduce OOM incidents during build.
 - The API route `pages/api/fetch-products.js` makes outbound HTTP requests; Vercel serverless functions must be able to reach those external endpoints.
 GitHub Actions (automatic deploy)
